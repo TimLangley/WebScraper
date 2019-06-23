@@ -1,6 +1,5 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
-
 var Knwl = require('knwl.js');
 var knwlInstance = new Knwl('english');
 
@@ -25,7 +24,8 @@ rp(url)
 		//Url is successful, begin to scrape for information
 		console.log("Website successfully found!");
 
-		knwlInstance.init(html);
+		const $ = cheerio.load(html);
+		knwlInstance.init($(html));
 
 		//Retrieve the information from the html
 		emails = knwlInstance.get('emails');
@@ -34,6 +34,7 @@ rp(url)
 		links = knwlInstance.get('links');
 
 		//Log the information gathered
+		//console.log(html);
 		console.log(emails);
 		console.log(phones);
 		console.log(places);
