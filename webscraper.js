@@ -31,14 +31,14 @@ rp(url)
 		emails = knwlInstance.get('emails');
 		phones = knwlInstance.get('phones');
 		places = knwlInstance.get('places');
-		links = knwlInstance.get('links');
+		//links = knwlInstance.get('links');
 
 		//Log the information gathered
 		//console.log(html);
 		console.log(emails);
 		console.log(phones);
 		console.log(places);
-		console.log(links);
+		//console.log(links);
 	})
 	.catch(function(err)
 	{
