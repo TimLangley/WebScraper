@@ -4,7 +4,7 @@ var Knwl = require('knwl.js');
 var knwlInstance = new Knwl('english');
 
 //Tell Knwl to register phones as a seperate module
-knwlInstance.register('phones', require('./documents/phones'));
+knwlInstance.register('phones', require('./phones'));
 
 //The information we will be gathering using Knwl
 var emails = [];
@@ -28,7 +28,7 @@ rp(url)
 		console.log("Website successfully found!");
 
 		const $ = cheerio.load(html);
-		knwlInstance.init($(html));
+		knwlInstance.init($.text());
 
 		//Retrieve the information from the html
 		emails = knwlInstance.get('emails');
